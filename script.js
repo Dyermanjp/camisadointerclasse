@@ -280,9 +280,8 @@ els.adminLoginForm.addEventListener('submit', async (e) => {
     await auth.signInWithEmailAndPassword(ADMIN_EMAIL, password);
     els.adminPassword.value = '';
   } catch (error) {
-  console.error(error);
-  setAdminLoginMessage(`${error.code}: ${error.message}`, true);
-}
+    console.error(error);
+    setAdminLoginMessage('Usuário ou senha incorretos.', true);
   } finally {
     els.adminLoginBtn.disabled = false;
     els.adminLoginBtn.textContent = 'Entrar';
