@@ -50,23 +50,83 @@
     <section class="card">
       <div class="section-title">
         <div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Quem já cadastrou</h2></div>
-        <span id="counter" class="pill">0/31</span>
+        <span id="counter" class="pill">0/30</span>
       </div>
       <div id="submittedList" class="list"></div>
     </section>
-
-    <details class="card admin-card">
-      <summary>Lista completa</summary>
-      <div class="admin-content">
-        <p class="muted">A lista abaixo é atualizada pelo Firebase. Para corrigir ou apagar um cadastro bloqueado, o responsável deve fazer isso pelo console do Firebase.</p>
-        <div class="admin-actions one"><button id="exportBtn" type="button" class="secondary">Exportar JSON</button></div>
-        <div id="adminTableWrap"></div>
-      </div>
-    </details>
   </main>
+
+  <button id="adminFab" class="admin-fab" type="button" aria-label="Abrir painel do administrador" title="Administrador">🔐</button>
+
+  <div id="adminModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <div class="modal-backdrop" data-close-admin></div>
+    <section class="modal-box">
+      <button class="modal-close" type="button" data-close-admin aria-label="Fechar">×</button>
+
+      <div id="adminLoginView">
+        <p class="eyebrow">ÁREA RESTRITA</p>
+        <h2 id="adminTitle">pro adm jp</h2>
+        <p class="muted">Acesso exclusivo para administração dos cadastros.</p>
+
+        <form id="adminLoginForm" class="admin-login-form">
+          <label for="adminUser">Usuário</label>
+          <input id="adminUser" type="text" autocomplete="username" placeholder="Usuário" required />
+
+          <label for="adminPassword">Senha</label>
+          <input id="adminPassword" type="password" autocomplete="current-password" placeholder="Senha" required />
+
+          <button id="adminLoginBtn" type="submit">Entrar</button>
+        </form>
+        <p id="adminLoginMessage" class="message" aria-live="polite"></p>
+      </div>
+
+      <div id="adminPanelView" class="hidden">
+        <div class="admin-panel-header">
+          <div>
+            <p class="eyebrow">ADMINISTRADOR</p>
+            <h2>Painel do JP</h2>
+          </div>
+          <button id="adminLogoutBtn" type="button" class="secondary small">Sair</button>
+        </div>
+
+        <p class="muted">Edite um cadastro ou retire o cadeado para a pessoa cadastrar novamente.</p>
+        <div class="admin-stats">
+          <div><strong id="adminSubmittedCount">0</strong><span>cadastrados</span></div>
+          <div><strong id="adminPendingCount">0</strong><span>pendentes</span></div>
+        </div>
+
+        <div id="adminRows" class="admin-rows"></div>
+      </div>
+
+      <div id="adminEditView" class="hidden">
+        <button id="adminBackBtn" type="button" class="text-btn">← Voltar</button>
+        <p class="eyebrow">EDITAR CADASTRO</p>
+        <h2 id="adminEditStudentName">Aluno</h2>
+
+        <form id="adminEditForm" class="admin-login-form">
+          <input id="adminEditStudentId" type="hidden" />
+
+          <label for="adminEditShirtName">Nome na camisa</label>
+          <input id="adminEditShirtName" type="text" maxlength="18" required />
+
+          <label for="adminEditNumber">Número</label>
+          <input id="adminEditNumber" type="number" min="0" max="999" required />
+
+          <label for="adminEditSize">Tamanho</label>
+          <select id="adminEditSize" required>
+            <option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option><option>XG</option>
+          </select>
+
+          <button id="adminSaveBtn" type="submit">Salvar alterações</button>
+        </form>
+        <p id="adminEditMessage" class="message" aria-live="polite"></p>
+      </div>
+    </section>
+  </div>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
