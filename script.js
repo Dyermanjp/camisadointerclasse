@@ -144,7 +144,7 @@ els.form.addEventListener('submit', async (e) => {
 
   if (!student) return setMessage('Selecione seu nome.', true);
   if (records[studentId]) return setMessage('Esse aluno já está cadastrado e bloqueado.', true);
-  if (!/^(?:[0-9]|[1-9][0-9])$/.test(number)) return setMessage('Escolha um número entre 0 e 99.', true);
+  if (!/^(?:0|[1-9][0-9]{0,2})$/.test(number)) return setMessage('Escolha um número entre 0 e 999.', true);
   if (claimedNumbers[String(number)] && claimedNumbers[String(number)] !== studentId) {
     return setMessage(`O número ${number} já foi escolhido por outra pessoa.`, true);
   }
