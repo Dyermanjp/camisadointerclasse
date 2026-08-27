@@ -67,3 +67,7 @@ th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; 
   .person { align-items: flex-start; }
   table { display: block; overflow-x: auto; white-space: nowrap; }
 }
+
+.message.error { color: var(--danger); }
+button:disabled { opacity: .65; cursor: wait; }
+.admin-actions.one { grid-template-columns: 1fr; }

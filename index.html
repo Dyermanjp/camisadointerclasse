@@ -29,7 +29,6 @@
             <label for="shirtName">Nome na camisa</label>
             <input id="shirtName" type="text" maxlength="18" placeholder="Ex.: GOMES" required />
           </div>
-
           <div>
             <label for="number">Número</label>
             <input id="number" type="number" min="0" max="99" placeholder="Ex.: 12" required />
@@ -39,47 +38,35 @@
         <label for="size">Tamanho</label>
         <select id="size" required>
           <option value="">Selecione</option>
-          <option>PP</option>
-          <option>P</option>
-          <option>M</option>
-          <option>G</option>
-          <option>GG</option>
-          <option>XG</option>
+          <option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option><option>XG</option>
         </select>
 
-        <div class="notice">
-          <strong>Atenção:</strong> confira tudo antes de enviar. Após a confirmação, apenas o administrador poderá alterar.
-        </div>
-
-        <button type="submit">Confirmar cadastro</button>
+        <div class="notice"><strong>Atenção:</strong> confira tudo antes de enviar. Após a confirmação, o cadastro fica bloqueado.</div>
+        <button id="submitBtn" type="submit">Confirmar cadastro</button>
       </form>
       <p id="message" class="message" aria-live="polite"></p>
     </section>
 
     <section class="card">
       <div class="section-title">
-        <div>
-          <p class="eyebrow">ACOMPANHAMENTO</p>
-          <h2>Quem já cadastrou</h2>
-        </div>
+        <div><p class="eyebrow">ACOMPANHAMENTO</p><h2>Quem já cadastrou</h2></div>
         <span id="counter" class="pill">0/31</span>
       </div>
       <div id="submittedList" class="list"></div>
     </section>
 
     <details class="card admin-card">
-      <summary>Área do administrador</summary>
+      <summary>Lista completa</summary>
       <div class="admin-content">
-        <p class="muted">Nesta versão, os dados ficam salvos apenas neste navegador. Depois vamos ligar ao Firebase para funcionar para toda a sala.</p>
-        <div class="admin-actions">
-          <button id="exportBtn" type="button" class="secondary">Exportar JSON</button>
-          <button id="resetBtn" type="button" class="danger">Apagar todos os registros</button>
-        </div>
+        <p class="muted">A lista abaixo é atualizada pelo Firebase. Para corrigir ou apagar um cadastro bloqueado, o responsável deve fazer isso pelo console do Firebase.</p>
+        <div class="admin-actions one"><button id="exportBtn" type="button" class="secondary">Exportar JSON</button></div>
         <div id="adminTableWrap"></div>
       </div>
     </details>
   </main>
 
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
