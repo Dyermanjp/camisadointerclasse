@@ -36,7 +36,6 @@ const students = [
   { id: "s22", name: "Mateus Souza Galvão", number: "", size: "" },
   { id: "s23", name: "Murilo Oliveira Justino", number: "", size: "" },
   { id: "s24", name: "Raissa Gomes da Silva", number: "22", size: "G" },
-  { id: "s25", name: "Sofia Neves Mina", number: "", size: "" },
   { id: "s26", name: "Sophia Morais Magnani", number: "", size: "" },
   { id: "s27", name: "Sophia Santos Lopes", number: "", size: "P" },
   { id: "s28", name: "Stella Morini Bernardo", number: "", size: "" },
