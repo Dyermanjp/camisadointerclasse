@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camisas do Interclasse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow">INTERCLASSE 2026</p>
+      <h1>Cadastro das camisas</h1>
+      <p>Selecione seu nome, escolha o número e o tamanho da camisa. Depois de confirmar, o cadastro fica bloqueado.</p>
+    </section>
+
+    <section class="card">
+      <form id="shirtForm">
+        <label for="student">Seu nome</label>
+        <select id="student" required>
+          <option value="">Selecione seu nome</option>
+        </select>
+
+        <div class="grid">
+          <div>
+            <label for="shirtName">Nome na camisa</label>
+            <input id="shirtName" type="text" maxlength="18" placeholder="Ex.: GOMES" required />
+          </div>
+
+          <div>
+            <label for="number">Número</label>
+            <input id="number" type="number" min="0" max="99" placeholder="Ex.: 12" required />
+          </div>
+        </div>
+
+        <label for="size">Tamanho</label>
+        <select id="size" required>
+          <option value="">Selecione</option>
+          <option>PP</option>
+          <option>P</option>
+          <option>M</option>
+          <option>G</option>
+          <option>GG</option>
+          <option>XG</option>
+        </select>
+
+        <div class="notice">
+          <strong>Atenção:</strong> confira tudo antes de enviar. Após a confirmação, apenas o administrador poderá alterar.
+        </div>
+
+        <button type="submit">Confirmar cadastro</button>
+      </form>
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">ACOMPANHAMENTO</p>
+          <h2>Quem já cadastrou</h2>
+        </div>
+        <span id="counter" class="pill">0/31</span>
+      </div>
+      <div id="submittedList" class="list"></div>
+    </section>
+
+    <details class="card admin-card">
+      <summary>Área do administrador</summary>
+      <div class="admin-content">
+        <p class="muted">Nesta versão, os dados ficam salvos apenas neste navegador. Depois vamos ligar ao Firebase para funcionar para toda a sala.</p>
+        <div class="admin-actions">
+          <button id="exportBtn" type="button" class="secondary">Exportar JSON</button>
+          <button id="resetBtn" type="button" class="danger">Apagar todos os registros</button>
+        </div>
+        <div id="adminTableWrap"></div>
+      </div>
+    </details>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
